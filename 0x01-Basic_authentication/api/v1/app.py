@@ -32,13 +32,13 @@ def not_found(error) -> str:
 @app.errorhandler(401)
 def unauthorized(error) -> str:
     """
-    Unauthorized handler.
+    Unauthorized handler
     """
     return jsonify({"error": "Unauthorized"}), 401
 
 
 @app.errorhandler(403)
-def unauthorized(error) -> str:
+def forbidden(error) -> str:
     """
     Forbidden handler.
     """
@@ -50,8 +50,8 @@ def before_request():
     """
     handler before_request
     """
-    authorized_list = ['/api/v1/status/',
-                       '/api/v1/unauthorized/', '/api/v1/forbidden/']
+    authorized_list = ['/api/v1/status',
+                       '/api/v1/unauthorized/', '/api/v1/forbidden']
 
     if auth and auth.require_auth(request.path, authorized_list):
         if not auth.authorization_header(request):

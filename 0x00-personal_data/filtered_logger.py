@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
-Personal data
+Personal Data
 """
-
 
 import logging
 import os
@@ -10,7 +9,8 @@ import re
 from typing import List
 import mysql.connector
 
-PII_FIELDS = ("name", "email", "phone", "ssn", "password")
+
+PII_FIELDS = ('name', 'email', 'phone', 'ssn', 'password')
 
 
 def filter_datum(fields: List[str], redaction: str, message: str,
